@@ -1,178 +1,220 @@
 const products = [
     {
-        description: "Формат peer-to-peer (з  англ. рівний-рівному, скор. p2p) на нашому курсі — це коли ви навчаєтесь\nБез менторів",
-        attributes: [['Sizes:', 'XS, S, M'], ['Material:', 'Wolf'], ['Model:', 'art-1829'], ['Type:', 'hoodie']],
-        colors: ["red"],
-        sizes: ["XL"],
-        id: 'js01',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'travel01',
+        category: 'travel-bags',
+        name: 'Voyager Elite Duffle Bag',
+        description: 'Premium travel duffle bag designed for long trips and weekend escapes. Features waterproof materials, reinforced handles, and spacious compartments for modern travelers.',
+        attributes: [
+            ['Capacity:', '42L'],
+            ['Material:', 'Premium Waterproof Nylon'],
+            ['Model:', 'VE-4201'],
+            ['Type:', 'Travel Duffle']
         ],
-        firstPrice: 750,
-        currentPrice: 500,
+        colors: ['black', 'graphite'],
+        sizes: ['42L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 320,
+        currentPrice: 259,
     },
+
     {
-        description: 'description',
-        attributes: [['Sizes:', 'XS, S, M'], ['Material:', 'Wolf'], ['Model:', 'art-1829'], ['Type:', 'hoodie']],
-        colors: ["red", "blue", "purple"],
-        sizes: ["XL", "XX", "M", "XXM"],
-        id: 'js02',
-        category: 'suits',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'travel02',
+        category: 'travel-bags',
+        name: 'Nord Cabin Carry Bag',
+        description: 'Luxury carry-on travel bag optimized for airplane cabins. Lightweight construction with premium finishing and organized inner storage.',
+        attributes: [
+            ['Capacity:', '35L'],
+            ['Material:', 'Leather & Nylon'],
+            ['Model:', 'NC-1802'],
+            ['Type:', 'Carry-On']
         ],
-        currentPrice: 1450,
+        colors: ['brown', 'black'],
+        sizes: ['35L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 410,
+        currentPrice: 349,
     },
+
     {
-        id: 'js03',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'backpack01',
+        category: 'backpacks',
+        name: 'Urban Motion Backpack',
+        description: 'Modern premium backpack with minimalist aesthetics and ergonomic comfort for city lifestyle and everyday use.',
+        attributes: [
+            ['Capacity:', '28L'],
+            ['Material:', 'Matte Polyester'],
+            ['Model:', 'UM-2801'],
+            ['Type:', 'Urban Backpack']
         ],
-        currentPrice: 950,
+        colors: ['black', 'grey'],
+        sizes: ['28L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 220,
+        currentPrice: 179,
     },
+
     {
-        id: 'data01',
-        category: 'T-shirts',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'backpack02',
+        category: 'backpacks',
+        name: 'Norden Alpine Backpack',
+        description: 'Premium sporty backpack inspired by Scandinavian outdoor design. Durable construction with multiple smart storage zones.',
+        attributes: [
+            ['Capacity:', '32L'],
+            ['Material:', 'Cordura Fabric'],
+            ['Model:', 'NA-3209'],
+            ['Type:', 'Outdoor Backpack']
         ],
-        currentPrice: 850,
+        colors: ['olive', 'black'],
+        sizes: ['32L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 290,
+        currentPrice: 239,
     },
+
     {
-        id: 'js04',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'business01',
+        category: 'business-and-laptop-bags',
+        name: 'Executive Leather Briefcase',
+        description: 'Elegant business briefcase crafted for professionals. Includes padded laptop section and premium genuine leather finish.',
+        attributes: [
+            ['Laptop Size:', '16 inch'],
+            ['Material:', 'Genuine Leather'],
+            ['Model:', 'EX-1601'],
+            ['Type:', 'Business Briefcase']
         ],
-        currentPrice: 550,
+        colors: ['dark brown', 'black'],
+        sizes: ['16 inch'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 520,
+        currentPrice: 459,
     },
+
     {
-        id: 'video01',
-        category: 'video',
-        name: 'Фундаментальный JavaScript',
-        //poster: "https://images.unsplash.com/photo-1536240478700-b869070f9279?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=862&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'business02',
+        category: 'business-and-laptop-bags',
+        name: 'Aero Laptop Messenger',
+        description: 'Slim premium messenger bag with modern aesthetics for work, meetings, and travel. Built for professionals who value authentic style.',
+        attributes: [
+            ['Laptop Size:', '15 inch'],
+            ['Material:', 'Premium Vegan Leather'],
+            ['Model:', 'AL-1508'],
+            ['Type:', 'Messenger Bag']
         ],
-        currentPrice: 1250,
+        colors: ['black', 'navy'],
+        sizes: ['15 inch'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 340,
+        currentPrice: 299,
     },
+
     {
-        id: 'video02',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'sport01',
+        category: 'sport-and-active-bags',
+        name: 'Titan Gym Duffle',
+        description: 'High-performance gym bag created for active lifestyle. Ventilated shoe section and durable water-resistant exterior.',
+        attributes: [
+            ['Capacity:', '38L'],
+            ['Material:', 'Waterproof Polyester'],
+            ['Model:', 'TG-3810'],
+            ['Type:', 'Gym Bag']
         ],
-        currentPrice: 1550,
+        colors: ['black', 'red'],
+        sizes: ['38L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 260,
+        currentPrice: 199,
     },
+
     {
-        id: 'video03',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=740&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'sport02',
+        category: 'sport-and-active-bags',
+        name: 'Velocity Active Pack',
+        description: 'Sport-inspired premium backpack designed for training, movement, and urban active lifestyle.',
+        attributes: [
+            ['Capacity:', '24L'],
+            ['Material:', 'Ripstop Nylon'],
+            ['Model:', 'VA-2402'],
+            ['Type:', 'Active Backpack']
         ],
-        currentPrice: 2250,
+        colors: ['white', 'black'],
+        sizes: ['24L'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 240,
+        currentPrice: 189,
     },
+
     {
-        id: 'video04',
-        category: 'hoodies',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1550784343-6bd0ce5d600b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'accessory01',
+        category: 'accessories',
+        name: 'Heritage Leather Wallet',
+        description: 'Compact premium wallet handcrafted with authentic leather texture and minimalist luxury design.',
+        attributes: [
+            ['Material:', 'Italian Leather'],
+            ['Model:', 'HW-1102'],
+            ['Type:', 'Wallet']
         ],
-        currentPrice: 1450,
+        colors: ['brown', 'black'],
+        sizes: ['One Size'],
+        photos: [
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
+        ],
+        firstPrice: 120,
+        currentPrice: 89,
     },
+
     {
-        id: 'sticker01',
-        category: 'stickers',
-        name: 'Набор наклеек Frontend',
-        //poster: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+        id: 'accessory02',
+        category: 'accessories',
+        name: 'Travel Organizer Pro',
+        description: 'Luxury organizer for documents, passports, cables, and accessories. Perfect companion for premium travelers.',
+        attributes: [
+            ['Material:', 'Waterproof Nylon'],
+            ['Model:', 'TO-0901'],
+            ['Type:', 'Organizer']
         ],
-        currentPrice: 550,
-    },
-    {
-        id: 'sticker02',
-        category: 'stickers',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1496493820873-82288ac48a48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
+        colors: ['graphite', 'black'],
+        sizes: ['One Size'],
         photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg',
+            'https://www.34play.me/loaded/catalog/goods/thumbs/c510b80d6174bacea2191cfb05510a2d.jpg'
         ],
-        currentPrice: 550,
-    },
-    {
-        id: 'sticker03',
-        category: 'stickers',
-        name: 'Рюкзак Norden 1801 Чорний Міський Чоловічий',
-        //poster: "https://images.unsplash.com/photo-1593754500338-969a679d5ca3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-        photos: [
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg",
-            "https://cdnby.sportmaster.com/upload/mdm/media_content/resize/6a5/768_1024_87b2/83968030299.jpg"
-        ],
-        currentPrice: 1550,
+        firstPrice: 95,
+        currentPrice: 69,
     },
 ];
 

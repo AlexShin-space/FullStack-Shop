@@ -3,7 +3,7 @@ import LocalMallRoundedIcon from '@mui/icons-material/LocalMallRounded';
 import { Box, Button, Container, Divider, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Modal, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import BasketItem from './BasketItem';
-import { promocodes } from '../data/promo';
+// import { promocodes } from '../data/promo';
 
 export const Basket = (props) => {
     const {
@@ -13,20 +13,12 @@ export const Basket = (props) => {
         cartOpen,
         closeCart = Function.prototype,
         order = [],
-        removeFromOrder
+        removeFromOrder,
+        promocodes = {},
+        promocode,
+        setPromocode
     } = props;
 
-
-    const getPromocode = () => {
-        let promocode = localStorage.getItem("promocode");
-        if (promocode === null) {
-            return "";
-        } else {
-            return JSON.parse(promocode);
-        }
-    }
-
-    const [promocode, setPromocode] = useState(getPromocode);
 
     const getDiscount = () => {
         if (promocode !== "") {
@@ -49,9 +41,20 @@ export const Basket = (props) => {
 
 
     useEffect(() => {
-        localStorage.setItem("promocode", JSON.stringify(promocode));
+        const newDiscount = getDiscount();
+        setDiscount(newDiscount);
+        if (newDiscount > 0) {
+            setFinalPriceComp("s");
+            setPromtext('Successfull');
+        } else {
+            setFinalPriceComp("p");
+            setPromtext('Promo code');
+        }
+    }, [promocodes, promocode]);
+
+    useEffect(() => {
         setSumWithDiscount(parseInt(sumWithoutDisc * (1-discount), 10));
-    }, [promocode, sumWithoutDisc, discount]);
+    }, [sumWithoutDisc, discount]);
     
     const checkPromo = (promo) => {
         setPromocode(promo);

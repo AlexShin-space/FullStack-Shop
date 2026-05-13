@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { getName } from './texts';
 
 const Filter = (props) => {
-    const { lang, alignment, setAlignment, setProducts, products} = props;
+    const { alignment, setAlignment, setProducts, products, categories = [] } = props;
     const navigate = useNavigate();
 
     const handleAlignment = (event, newAlignment) => {
@@ -26,25 +26,18 @@ const Filter = (props) => {
         ));
     };
 
-    const myMargin = '8%';
-
     const giveFilter = (elementEng) => {
-        let element = getName(elementEng, lang)
+        let element = getName(elementEng)
         return (
             <Typography
-                variant="subtitle1" //выглядит как h6
-                component="a"
-                href={elementEng + "/page1"}
+                variant="subtitle2"
+                component="span"
                 sx={{
-                    pointerEvents: 'none',
-                    //flexGrow: 1,
-                    //mr: 2,
-                    //display: { xs: 'none', md: 'flex' },
-                    fontFamily: 'sans-serif', //change the font
-                    fontWeight: 600, //жирность
-                    //letterSpacing: '.0rem',
+                    fontFamily: 'sans-serif',
+                    fontWeight: 600,
                     color: 'inherit',
                     textDecoration: 'none',
+                    fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' }
                 }}>
                 {element}
             </Typography>
@@ -59,49 +52,31 @@ const Filter = (props) => {
             onChange={handleAlignment}
             color='success'
             sx={{
-                marginBottom: '10px', width: '100%',
-                //alignItems: 'center' 
+                marginBottom: '10px',
+                width: '100%',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '10px'
             }}>
 
-            <ToggleButton value="hoodies"
-                //href="/hoodies/page1"
-                sx={{
-                    //borderRadius: '45px',
-                    border: 'InactiveBorder',
-                    marginRight: myMargin
-                }}>
-                {giveFilter("hoodies")}
-            </ToggleButton>
-
-            <ToggleButton value="T-shirts"
-                //href="/shirts/page1"
-                sx={{
-                    //borderRadius: '45px',
-                    border: 'InactiveBorder',
-                    marginRight: myMargin
-                }}>
-                {giveFilter("T-shirts")}
-            </ToggleButton>
-
-            <ToggleButton value="suits"
-                //href="/suits/page1"
-                sx={{
-                    border: 'InactiveBorder',
-                    marginRight: myMargin
-                }}>
-                {giveFilter("suits")}
-            </ToggleButton>
-
-            <ToggleButton value="trousers"
-                //href="/trousers/page1"
-                sx={{
-                    border: 'InactiveBorder',
-                }}>
-                {giveFilter("trousers")}
-            </ToggleButton>
+            {categories.map((cat) => (
+                <ToggleButton
+                    key={cat}
+                    value={cat}
+                    sx={{
+                        border: '1px solid rgba(0, 0, 0, 0.12)',
+                        borderRadius: '4px !important',
+                        flex: '1 0 auto',
+                        minWidth: '100px',
+                        padding: '10px'
+                    }}>
+                    {giveFilter(cat)}
+                </ToggleButton>
+            ))}
 
         </ToggleButtonGroup>
     );
 }
+
 
 export default Filter;

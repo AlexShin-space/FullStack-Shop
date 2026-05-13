@@ -50,12 +50,12 @@ const App = () => {
             return JSON.parse(darkTheme);
         }
     }
-    const getLanguage = () => {
-        let lang = localStorage.getItem("language");
-        if (lang === null) {
-            return 'uk';
+    const getPromocode = () => {
+        let promocode = localStorage.getItem("promocode");
+        if (promocode === null) {
+            return "";
         } else {
-            return JSON.parse(lang);
+            return JSON.parse(promocode);
         }
     }
     //SEO
@@ -68,6 +68,8 @@ const App = () => {
     const [products, setProducts] = useState([]);
     const [isCartOpen, setCartOpen] = useState(false);
     const [isSnackOpen, setSnackOpen] = useState('');
+    const [promocodes, setPromocodes] = useState({});
+    const [promocode, setPromocode] = useState(getPromocode());
 
     const [wishList, setWishList] = useState(getLocalCartData("wishList"))
     const [isWishListOpen, setWishListOpen] = useState(false);
@@ -77,7 +79,8 @@ const App = () => {
 
     const [alignment, setAlignment] = useState();
     const [productsInOrder, setProductsInOrder] = useState(getCountOfProducts());
-    const [language, setLanguage] = useState(getLanguage());
+
+    const categories = [...new Set(allProducts.map(p => p.category))];
 
     const handleChange = (e) => {
         if (!e.target.value) {
@@ -198,10 +201,10 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem("DarkTheme", JSON.stringify(darkTheme));
     }, [darkTheme]);
-    //language
+    //promocode
     useEffect(() => {
-        localStorage.setItem("language", JSON.stringify(language));
-    }, [language]);
+        localStorage.setItem("promocode", JSON.stringify(promocode));
+    }, [promocode]);
 
     // Fetch products from server
     useEffect(() => {
@@ -212,6 +215,13 @@ const App = () => {
                 setProducts(data);
             })
             .catch(err => console.error("Error fetching products:", err));
+        
+        fetch('http://localhost:5000/api/promo')
+            .then(res => res.json())
+            .then(data => {
+                setPromocodes(data);
+            })
+            .catch(err => console.error("Error fetching promocodes:", err));
     }, []);
 
     //title
@@ -229,9 +239,9 @@ const App = () => {
     }
 
 
-    const RetFilterPages = (values) => {
+    const RetFilterPages = () => {
         return (
-            values.map((value) => {
+            categories.map((value) => {
 
                 let arr = allProducts.filter((good) => good.category.includes(value));
 
@@ -240,20 +250,20 @@ const App = () => {
                     numbers[i] = i;
                 }
 
-                let name = getName(value, language)
+                let name = getName(value)
                 return (
                     numbers.map((i) => (
                         <Route key={i} exact path={'/' + value + '/page' + (i + 1)} element={
                             <>
                                 <Helmet>
                                     <title >
-                                        {titleForFilterPage(language, name, i + 1)}
+                                        {titleForFilterPage(name, i + 1)}
                                     </title>
-                                    <meta name="description" content={descriprionForFilterPage(language, name, i + 1)} />
+                                    <meta name="description" content={descriprionForFilterPage(name, i + 1)} />
                                     <link rel="canonical" href={'/' + value + '/page' + (i + 1)} />
                                 </Helmet>
                                 <h1>{name}</h1>
-                                <Filter alignment={value} setAlignment={setAlignment} setProducts={setProducts} lang={language} products={allProducts} />
+                                <Filter alignment={value} setAlignment={setAlignment} setProducts={setProducts} products={allProducts} />
                                 <GoodsList goods={
                                     arr.slice(i * ItemsPerPage, (i * ItemsPerPage + ItemsPerPage))
                                 }
@@ -285,14 +295,14 @@ const App = () => {
                     <>
                         <Helmet>
                             <title>
-                                {titleForPaginationPages(language, i + 1)}
+                                {titleForPaginationPages(i + 1)}
                             </title>
-                            <meta name="description" content={descriptionForPaginationPages(language, i + 1)} />
+                            <meta name="description" content={descriptionForPaginationPages(i + 1)} />
                             <link rel="canonical" href={'/page' + (i + 1)} />
                         </Helmet>
 
-                        <Search value={search} onChange={handleChange} lang={language} />
-                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} lang={language} products={allProducts} />
+                        <Search value={search} onChange={handleChange} />
+                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} products={allProducts} />
                         <GoodsList goods={
                             allProducts.slice(i * ItemsPerPage, (i * ItemsPerPage + ItemsPerPage))
                         }
@@ -311,9 +321,9 @@ const App = () => {
         <HelmetProvider context={helmetContext}>
             <Helmet>
                 <title>
-                    {titleForPaginationPages(language)}
+                    {titleForPaginationPages()}
                 </title>
-                <meta name="description" content={descriptionForPaginationPages(language)} />
+                <meta name="description" content={descriptionForPaginationPages()} />
                 <link rel="canonical" href="/" />
 
                 <meta property="og:title" content="Стильний одяг. Насолоджуйся!" />
@@ -328,8 +338,6 @@ const App = () => {
                 <CssBaseline />
                 <Box sx={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
                     <Header
-                        lang={language}
-                        setLang={setLanguage}
                         checked={darkTheme}
                         setTheme={setCurrentTheme}
                         handleCart={() => setCartOpen(true)}
@@ -347,30 +355,17 @@ const App = () => {
                             <Routes>
                                 <Route exact path='/' element={
                                     <>
-                                        {welcomeText('uk')}
+                                        {welcomeText(categories)}
 
-                                        <Search value={search} onChange={handleChange} lang={'uk'} />
-                                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} lang={'uk'} products={allProducts} />
-                                        <GoodsList goods={products.slice(0 * ItemsPerPage, (0 * ItemsPerPage + ItemsPerPage))}
-                                            setWishList={addToWishList} wishList={wishList} />
-                                        <Mypagination allpages={Math.ceil(products.length / ItemsPerPage)} page={1} />
-                                    </>
-                                } />
-                                <Route exact path='/ru' element={
-                                    <>
-                                        {welcomeText('ru')}
-
-                                        <Search value={search} onChange={handleChange} lang={'ru'} />
-                                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} lang={'ru'} products={allProducts} />
+                                        <Search value={search} onChange={handleChange} />
+                                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} products={allProducts} categories={categories} />
                                         <GoodsList goods={products.slice(0 * ItemsPerPage, (0 * ItemsPerPage + ItemsPerPage))}
                                             setWishList={addToWishList} wishList={wishList} />
                                         <Mypagination allpages={Math.ceil(products.length / ItemsPerPage)} page={1} />
                                     </>
                                 } />
                                 {retMainPages()}
-                                {RetFilterPages(['hoodies', 'T-shirts', 'suits', 'trousers'])}
-                                {/* {RetFilterPage('hoodies')} */}
-                                {/* {['hoodies', 'T-shirts', 'suits', 'trousers'].map(value => RetFilterPage(value))} */}
+                                {RetFilterPages()}
 
                                 {/* ua item's pages */}
                                 {allProducts.map((item) => (
@@ -386,15 +381,15 @@ const App = () => {
                                         setWishList={addToWishList} wishList={wishList} />} />
                             ))} */}
 
-                                <Route exact path='/order' element={<MyOrder order={order} />} />
+                                <Route exact path='/order' element={<MyOrder order={order} promocode={promocode} promocodes={promocodes} />} />
 
                                 <Route exact path='/about-as' element={<AboutAS />} />
 
                                 {/* default page 404 */}
                                 <Route exact path='*' element={
                                     <>
-                                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} lang={language} products={allProducts} />
-                                        {page404text(language)}
+                                        <Filter alignment={alignment} setAlignment={setAlignment} setProducts={setProducts} products={allProducts} categories={categories} />
+                                        {page404text()}
                                     </>
                                 } />
                             </Routes>
@@ -408,7 +403,10 @@ const App = () => {
                         cartOpen={isCartOpen}
                         closeCart={() => setCartOpen(false)}
                         addToOrder={addToOrder}
-                        deleteFromOrder={deleteFromOrder} />
+                        deleteFromOrder={deleteFromOrder}
+                        promocodes={promocodes}
+                        promocode={promocode}
+                        setPromocode={setPromocode} />
                     <Wishlist
                         darkTheme={darkTheme}
                         wishList={wishList}

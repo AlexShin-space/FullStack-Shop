@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const MyOrder = (props) => {
 
-    //const { order = [] } = props;
+    const { order = [], promocode = "", promocodes = {} } = props;
     const [name, setName] = useState('');
     const [city, setCity] = useState('');
     const [postNumber, setPostnumber] = useState('');
@@ -11,15 +11,59 @@ const MyOrder = (props) => {
     const [email, setEmail] = useState('');
     const [coment, setComent] = useState('');
 
+    const getDiscount = () => {
+        if (promocode !== "") {
+            for (const [promo, discount] of Object.entries(promocodes)) {
+                if (promocode === promo) {
+                    return discount / 100;
+                }
+            }
+        }
+        return 0;
+    };
 
+    const sumWithoutDisc = order.reduce((acc, item) => {
+        return acc + item.price * item.quantity;
+    }, 0);
 
-    const send = () => {
-        console.log(name)
-        console.log(city)
-        console.log(postNumber)
-        console.log(phone)
-        console.log(email)
-        console.log(coment)
+    const discount = getDiscount();
+    const sumWithDisc = parseInt(sumWithoutDisc * (1 - discount), 10);
+
+    const send = async () => {
+        const orderData = {
+            customer: {
+                name,
+                city,
+                postNumber,
+                phone,
+                email,
+                comment: coment
+            },
+            items: order,
+            totalWithoutPromo: sumWithoutDisc,
+            appliedPromo: promocode,
+            totalWithPromo: sumWithDisc
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (response.ok) {
+                alert('Замовлення успішно відправлено!');
+                // Optionally clear form or redirect
+            } else {
+                alert('Помилка при відправці замовлення.');
+            }
+        } catch (error) {
+            console.error('Error sending order:', error);
+            alert('Сталася помилка при з\'єднанні з сервером.');
+        }
     };
 
 

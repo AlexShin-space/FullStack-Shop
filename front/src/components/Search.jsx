@@ -1,10 +1,10 @@
 import { TextField } from "@mui/material";
 
 const Search = (props) => {
-    const { onChange, value, lang } = props;
+    const { onChange, value } = props;
 
     return <TextField
-        label={lang === 'uk' ? "Пошук" : "Поиск"}
+        label="Пошук"
         variant="standard"
         fullWidth
         type='search'
